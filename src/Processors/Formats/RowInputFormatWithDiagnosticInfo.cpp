@@ -37,8 +37,8 @@ void RowInputFormatWithDiagnosticInfo::updateDiagnosticInfo()
 
 String RowInputFormatWithDiagnosticInfo::getDiagnosticInfo()
 {
-    if (in.eof())        /// Buffer has gone, cannot extract information about what has been parsed.
-        return {};
+    if (in.eof())
+        return "Buffer has gone, cannot extract information about what has been parsed.";
 
     WriteBufferFromOwnString out;
 
@@ -107,12 +107,13 @@ bool RowInputFormatWithDiagnosticInfo::deserializeFieldAndPrintDiagnosticInfo(co
 
     try
     {
-        tryDeserializeFiled(type, column, file_column, prev_position, curr_position);
+        tryDeserializeFiled(type, column, file_column);
     }
     catch (...)
     {
         exception = std::current_exception();
     }
+    curr_position = in.position();
 
     if (curr_position < prev_position)
         throw Exception("Logical error: parsing is non-deterministic.", ErrorCodes::LOGICAL_ERROR);
