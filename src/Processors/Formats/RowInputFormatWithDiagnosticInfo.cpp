@@ -107,7 +107,7 @@ bool RowInputFormatWithDiagnosticInfo::deserializeFieldAndPrintDiagnosticInfo(co
 
     try
     {
-        tryDeserializeFiled(type, column, file_column);
+        tryDeserializeField(type, column, file_column);
     }
     catch (...)
     {

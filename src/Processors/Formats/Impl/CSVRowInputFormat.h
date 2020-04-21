@@ -55,7 +55,7 @@ private:
     void addInputColumn(const String & column_name);
 
     bool parseRowAndPrintDiagnosticInfo(MutableColumns & columns, WriteBuffer & out) override;
-    void tryDeserializeFiled(const DataTypePtr & type, IColumn & column, size_t file_column) override;
+    void tryDeserializeField(const DataTypePtr & type, IColumn & column, size_t file_column) override;
     bool isGarbageAfterField(size_t, ReadBuffer::Position pos) override
     {
         return *pos != '\n' && *pos != '\r' && *pos != format_settings.csv.delimiter && *pos != ' ' && *pos != '\t';

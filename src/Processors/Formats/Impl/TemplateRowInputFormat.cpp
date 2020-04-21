@@ -410,7 +410,7 @@ void TemplateRowInputFormat::writeErrorStringForWrongDelimiter(WriteBuffer & out
     out << '\n';
 }
 
-void TemplateRowInputFormat::tryDeserializeFiled(const DataTypePtr & type, IColumn & column, size_t file_column)
+void TemplateRowInputFormat::tryDeserializeField(const DataTypePtr & type, IColumn & column, size_t file_column)
 {
     if (row_format.format_idx_to_column_idx[file_column])
         deserializeField(type, column, file_column);

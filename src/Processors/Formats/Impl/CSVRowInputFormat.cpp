@@ -353,7 +353,7 @@ void CSVRowInputFormat::syncAfterError()
     skipToNextLineOrEOF(in);
 }
 
-void CSVRowInputFormat::tryDeserializeFiled(const DataTypePtr & type, IColumn & column, size_t file_column)
+void CSVRowInputFormat::tryDeserializeField(const DataTypePtr & type, IColumn & column, size_t file_column)
 {
     if (column_indexes_for_input_fields[file_column])
     {

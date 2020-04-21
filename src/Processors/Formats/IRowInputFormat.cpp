@@ -131,7 +131,7 @@ Chunk IRowInputFormat::generate()
         {
             verbose_diagnostic = getDiagnosticInfo();
         }
-        catch (Exception & exception)
+        catch (const Exception & exception)
         {
             verbose_diagnostic = "Cannot get verbose diagnostic: " + exception.message();
         }
