@@ -102,7 +102,6 @@ bool RowInputFormatWithDiagnosticInfo::deserializeFieldAndPrintDiagnosticInfo(co
         << "type: " << alignedName(type->getName(), max_length_of_data_type_name);
 
     auto prev_position = in.position();
-    auto curr_position = in.position();
     std::exception_ptr exception;
 
     try
@@ -113,7 +112,7 @@ bool RowInputFormatWithDiagnosticInfo::deserializeFieldAndPrintDiagnosticInfo(co
     {
         exception = std::current_exception();
     }
-    curr_position = in.position();
+    auto curr_position = in.position();
 
     if (curr_position < prev_position)
         throw Exception("Logical error: parsing is non-deterministic.", ErrorCodes::LOGICAL_ERROR);
