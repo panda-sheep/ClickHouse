@@ -20,7 +20,6 @@ namespace DB
 namespace ErrorCodes
 {
     extern const int LOGICAL_ERROR;
-    extern const int CANNOT_PARSE_INPUT_ASSERTION_FAILED;
     extern const int SYNTAX_ERROR;
     extern const int TYPE_MISMATCH;
     extern const int SUPPORT_IS_DISABLED;
